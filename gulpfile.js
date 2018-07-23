@@ -1,5 +1,5 @@
 /**
- *  Copyright 2017 Mark Anthony Adriano
+ *  Copyright 2017 Amardeep Rai
  *  
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ var htmlmin = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
 
 // Set the browser that you want to supoprt
 const AUTOPREFIXER_BROWSERS = [
@@ -51,21 +50,6 @@ gulp.task('styles', function () {
     }))
     // Auto-prefix css styles for cross browser compatibility
     .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-    //concat different styles files
-    .pipe(concat('main.css'))
-    // Minify the file
-    .pipe(csso())
-    // Output
-    .pipe(gulp.dest('./dist/css'))
-});
-
-// Gulp task to minify CSS files
-gulp.task('styles', function () {
-  return gulp.src('./src/css/styles.css')
-    // Auto-prefix css styles for cross browser compatibility
-    .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-     //concat different styles files
-     .pipe(concat('all.css'))
     // Minify the file
     .pipe(csso())
     // Output
@@ -74,10 +58,7 @@ gulp.task('styles', function () {
 
 // Gulp task to minify JavaScript files
 gulp.task('scripts', function() {
-  return gulp.src(['./lib/file3.js', './lib/file1.js', './lib/file2.js'])
-  //return gulp.src('./src/js/**/*.js')
-    //Concatenates files according to pattern rules.
-    .pipe(concat('all.js')) 
+  return gulp.src('./src/js/**/*.js')
     // Minify the file
     .pipe(uglify())
     // Output
