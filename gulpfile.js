@@ -24,6 +24,7 @@ var htmlmin = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
+concat = require('gulp-concat')
 
 // Set the browser that you want to supoprt
 const AUTOPREFIXER_BROWSERS = [
@@ -40,7 +41,7 @@ const AUTOPREFIXER_BROWSERS = [
 
 // Gulp task to minify CSS files
 gulp.task('styles', function () {
-  return gulp.src('./src/sass/styles.scss')
+  return gulp.src('./src/sass/*.scss')
     // Compile SASS files
     .pipe(sass({
       outputStyle: 'nested',
@@ -50,20 +51,39 @@ gulp.task('styles', function () {
     }))
     // Auto-prefix css styles for cross browser compatibility
     .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    //concat different  files
+    .pipe(concat('main.scss'))
     // Minify the file
     .pipe(csso())
     // Output
     .pipe(gulp.dest('./dist/css'))
 });
 
+// Gulp task to minify CSS files
+gulp.task('styles', function () {
+  return gulp.src('./src/css/styles.css')
+    // Auto-prefix css styles for cross browser compatibility
+    .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    //concat different  files
+    .pipe(concat('main.css'))
+    // Minify the file
+    .pipe(csso())
+    // Output
+    .pipe(gulp.dest('./dist/css'))
+});
+
+
 // Gulp task to minify JavaScript files
 gulp.task('scripts', function() {
   return gulp.src('./src/js/**/*.js')
+   //concat different  files
+   .pipe(concat('main.js'))
     // Minify the file
     .pipe(uglify())
     // Output
     .pipe(gulp.dest('./dist/js'))
 });
+ 
 
 // Gulp task to minify HTML files
 gulp.task('pages', function() {
