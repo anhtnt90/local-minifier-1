@@ -1,5 +1,5 @@
 /**
- *  Copyright 2017 Mark Anthony Adriano
+ *  Copyright 2017 Amardeep Rai
  *  
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ var htmlmin = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
-var concat = require('gulp-concat')
 
 // Set the browser that you want to supoprt
 const AUTOPREFIXER_BROWSERS = [
@@ -57,24 +56,9 @@ gulp.task('styles', function () {
     .pipe(gulp.dest('./dist/css'))
 });
 
-// Gulp task to minify CSS files
-gulp.task('styles', function () {
-  return gulp.src('./src/css/*.css')
-    // Auto-prefix css styles for cross browser compatibility
-    .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-    //concat different files 
-    .pipe(concat('main.css'))
-    // Minify the file
-    .pipe(csso())
-    // Output
-    .pipe(gulp.dest('./dist/css'))
-});
-
 // Gulp task to minify JavaScript files
 gulp.task('scripts', function() {
   return gulp.src('./src/js/**/*.js')
-   //concat different files 
-    .pipe(concat('main.js'))
     // Minify the file
     .pipe(uglify())
     // Output
