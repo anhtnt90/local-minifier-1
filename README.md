@@ -11,10 +11,10 @@ Start by cloning or downloading the source files.
 Clone the repo using Git:
 
 ```bash
-git clone https://github.com/amardeeprai/local-minifier.git
+git clone https://github.com/mark-mg/local-minifier.git
 ```
 
-Alternatively you can [download](https://github.com/amardeeprai/local-minifier/archive/master.zip)
+Alternatively you can [download](https://github.com/mark-mg/local-minifier/archive/master.zip)
 this repository.
 
 
@@ -77,6 +77,6 @@ NOTE: this can only be run from the directory where you have cloned or downloade
 
 ## License
 
-Copyright 2017 Amardeep Rai. Licensed under an
-[Apache-2](https://github.com/amardeeprai/local-minifier/blob/master/LICENSE)
+Copyright 2017 Mark Anthony Adriano. Licensed under an
+[Apache-2](https://github.com/mark-mg/local-minifier/blob/master/LICENSE)
 license.
