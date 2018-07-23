@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "description": "A local environment to minify CSS, JS, & HTML files",
   "license": "Apache-2.0",
-  "author": "Amardeep Rai",
+  "author": "Mark Anthony Adriano",
   "repository": {
     "type": "git",
-    "url": "https://github.com/amardeeprai/local-minifier"
+    "url": "https://github.com/mark-mg/local-minifier"
   },
   "devDependencies": {
     "del": "^2.0.2",
